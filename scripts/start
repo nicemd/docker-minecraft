@@ -7,10 +7,11 @@
 # -----------------------------------------------------------------------------
 
 
-if [ ! -f /data/minecraft_server.jar ]
+if [ ! -f /data/minecraft_server.1.12.jar ]
 then
-    curl "https://s3.amazonaws.com/Minecraft.Download/versions/1.11.2/minecraft_server.1.11.2.jar" -o /data/minecraft_server.jar
+    curl "https://s3.amazonaws.com/Minecraft.Download/versions/1.12/minecraft_server.1.12.jar" -o /data/minecraft_server.1.12.jar
 fi
+cp -f /data/minecraft_server.1.12.jar /data/minecraft_server.jar
 
 if [ ! -f /data/eula.txt ]
 then
