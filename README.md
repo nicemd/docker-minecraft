@@ -6,29 +6,43 @@ For more information on Minecraft and check out it's [website][1].
 
 This repository is a fork from https://github.com/overshard/docker-minecraft
 
-## Running this image
+## Running
+### Running this image with Docker-Compose
 
-Running this will build you a docker image with the latest version of both
-docker-minecraft and Minecraft itself. 
+```
+git clone https://github.com/nicemd/docker-minecraft
+cd docker-minecraft
+docker-compose up
+```
+Note you need docker-compose v1.21 or later.
 
-    git clone https://github.com/nicemd/docker-minecraft
-    cd docker-minecraft
-    docker-compose up
+### Running this image in a Docker Swarm
+Only one swarm replica of the Minecraft server is supported.
 
-The Docker image is built on your computer and not downloaded from Docker hub.
-
-## Running this image in a Docker Swarm
-
-Only one swarm replica of the server is supported.
-
-
-    git clone https://github.com/nicemd/docker-minecraft
-    cd docker-minecraft
-    docker stack deploy -c docker-compose.yml minecraft
-
+```
+git clone https://github.com/nicemd/docker-minecraft
+cd docker-minecraft
+docker stack deploy -c docker-compose.yml minecraft
+```
 ## Minecraft Data directory
 
 Your Minecraft world data will be placed in the `data` directory.
 
+
+## Building docker image
+```
+docker build -t niemd/docker-minecraft .
+docker tag niemd/docker-minecraft:latest niemd/docker-minecraft:1.12.2
+```
+
+Push it to Docker hub
+```
+docker push niemd/docker-minecraft:latest
+docker push niemd/docker-minecraft:1.12.2
+```
+
+
 [0]: http://www.docker.io/gettingstarted/
 [1]: http://minecraft.net/
+
+
